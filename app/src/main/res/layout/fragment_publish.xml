@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/main_rb_btn_checked_color">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/publish_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="资讯"
+                android:textSize="50px"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/publish_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频"
+                android:textSize="50px"
+                android:layout_marginLeft="70px"
+                android:padding="10px"
+                android:textColor="@android:color/white"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <ImageView
+            android:id="@+id/publish_serach"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:src="@drawable/publish_serach"
+            android:layout_alignParentRight="true"
+            android:padding="20px"
+            android:layout_marginRight="20px"
+           android:layout_centerVertical="true"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/publish_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="26px"
+        android:layout_marginBottom="26px">
+        <com.xgkj.ilive.view.CircleImageView
+            android:id="@+id/commet_icon"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:layout_marginLeft="30px"
+            />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="30px"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/commet_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:textColor="@color/main_rb_btn_checked_color"
+                />
+            <TextView
+                android:id="@+id/commet_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40px"
+                android:layout_marginTop="20px"
+                android:textColor="@color/color_black_999999"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/commet_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="50px"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="5px"
+        android:layout_marginBottom="10px"
+        android:textColor="@color/color_black_333333"/>
+</com.zhy.autolayout.AutoLinearLayout>

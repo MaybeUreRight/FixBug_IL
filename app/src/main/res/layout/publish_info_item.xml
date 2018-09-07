@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:layout_marginTop="51px"
+    android:paddingBottom="32px"
+    >
+    
+     <ImageView
+         android:layout_marginLeft="64px"
+         android:id="@+id/info_pic"
+         android:layout_width="300px"
+         android:layout_height="300px"
+         android:src="@drawable/default_pic"
+         android:scaleType="fitXY"/>
+
+     <LinearLayout
+         android:layout_marginLeft="32px"
+         android:padding="32px"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:paddingLeft="45px">
+          <TextView
+              android:id="@+id/info_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="50px"
+              android:singleLine="true"
+              android:ellipsize="end"
+              android:textColor="@android:color/black"
+              />
+          <TextView
+              android:layout_marginTop="32px"
+              android:id="@+id/info_content"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:maxLines="3"
+              android:ellipsize="end"
+             android:textSize="40px"
+              />
+          <TextView
+              android:layout_marginTop="32px"
+              android:id="@+id/info_time"
+              android:text="40px"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/info_bg_time_color"/>
+     </LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

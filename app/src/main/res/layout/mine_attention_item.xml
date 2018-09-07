@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10px"
+    android:gravity="center_vertical">
+    <com.xgkj.ilive.view.CircleImageView
+        android:id="@+id/attention_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mine_circle_icon"/>
+    <TextView
+        android:id="@+id/attention_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="关注姓名"
+        android:paddingLeft="10px"/>
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/stop_live_bg"
+        android:text="已关注"
+        android:textColor="@android:color/white"/>
+</com.zhy.autolayout.AutoLinearLayout>

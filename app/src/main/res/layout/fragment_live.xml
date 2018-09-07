@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/main_rb_btn_checked_color">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/live_fragment_title_style"
+                android:id="@+id/hot_live"
+                android:text="热门"
+                android:gravity="right|center_vertical"
+                />
+            <TextView
+                android:id="@+id/new_best_live"
+                style="@style/live_fragment_title_style"
+                android:text="最新"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/advance_notice"
+                android:text="预告"
+                android:gravity="left|center"
+                style="@style/live_fragment_title_style"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/framelayout_live"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</com.zhy.autolayout.AutoLinearLayout>

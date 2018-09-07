@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="#aaaaaa">
+
+    <com.xgkj.ilive.view.ClipImageLayout
+        android:id="@+id/id_clipImageLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </com.xgkj.ilive.view.ClipImageLayout>
+
+    <Button
+        android:id="@+id/bt_photo_ok"
+        android:layout_width="135px"
+        android:layout_height="135px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="64px"
+        android:layout_marginBottom="64px"
+        android:background="@drawable/screenshot_checked"
+         />
+
+</RelativeLayout>

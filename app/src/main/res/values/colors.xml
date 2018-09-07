@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <!--将引导页pager按钮的背景颜色-->
+    <color name="guide_pager_btn_background_color">#00000000</color>
+
+    <!--主界面中底部字体选中的颜色-->
+    <color name="main_rb_btn_checked_color">#00a0ff</color>
+
+    <!--主界面中底部字体未选中的颜色-->
+    <color name="main_rb_btn_unchecked_color">@android:color/black</color>
+
+    <!--我的界面列表显示的背景颜色-->
+    <color name="mine_list_layout_background_color">#f2f2f2</color>
+
+    <!--登录中输入框中默认字体的颜色-->
+    <color name="login_et_text_color">#adadad</color>
+
+    <!--登录和注册下划线的颜色-->
+    <color name="login_register_underline_color">#bdbdbd</color>
+
+    <!--发现里面的字体颜色-->
+    <color name="publish_font_color">#d6d5d5</color>
+
+    <color name="circle_unchecked">#fff</color>
+
+    <color name="item_color">#999999</color>
+    
+    <color name="video_play_bg_color">#e2e7eb</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="color_black_333333">#333333</color>
+
+    <color name="color_black_666666">#666666</color>
+
+    <color name="color_black_999999">#999999</color>
+
+    <color name="color_live_announice_6d6a63">#6d6a63</color>
+
+    <!--直播的按钮的背景颜色-->
+    <color name="live_bg_202020">#202020</color>
+
+    <color name="info_bg_time_color">#a8a8a8</color>
+
+    <color name="color_ff6854">#ff6854</color>
+</resources>

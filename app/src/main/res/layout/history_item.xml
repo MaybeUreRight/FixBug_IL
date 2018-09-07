@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:gravity="center"
+            android:layout_marginLeft="40px"
+            android:src="@drawable/history_serach_icon"/>
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="40px"
+            android:textSize="50px"
+            android:layout_marginLeft="40px"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/clear_history_serach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除记录"
+        android:padding="30px"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@color/mine_list_layout_background_color"
+        android:layout_marginLeft="40px"/>
+</com.zhy.autolayout.AutoLinearLayout>

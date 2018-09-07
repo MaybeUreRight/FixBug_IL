@@ -1,0 +1,168 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--启动页面主题-->
+    <style name="splash_theme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/activity_splash</item>
+    </style>
+
+    <!--主界面中底部状态栏的样式-->
+    <style name="main_rb_btn_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">50px</item>
+        <item name="android:paddingTop">5px</item>
+        <item name="android:drawablePadding">10px</item>
+        <item name="android:textColor">@drawable/main_rb_btn_selector</item>
+    </style>
+
+
+    <!--我的界面左侧图标的样式-->
+    <style name="mine_list_left_icon">
+        <item name="android:layout_width">50px</item>
+        <item name="android:layout_height">50px</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--我的界面列表显示的文字样式-->
+    <style name="mine_list_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">80px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">40px</item>
+    </style>
+
+    <!--我的界面下划线样式-->
+    <style name="mine_list_underline_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4px</item>
+        <item name="android:background">@color/mine_list_layout_background_color</item>
+    </style>
+
+    <!--我的界面下划线样式-->
+    <style name="login_underline_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/mine_list_layout_background_color</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <!--登录界面输入框的样式-->
+    <style name="login_et_input_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">256px</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/login_et_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">50px</item>
+    </style>
+
+    <!--我的界面下划线样式-->
+    <style name="login_register_underline_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4px</item>
+        <item name="android:background">@color/login_register_underline_color</item>
+        <item name="android:layout_marginLeft">108px</item>
+        <item name="android:layout_marginRight">108px</item>
+        <item name="android:layout_marginTop">30px</item>
+    </style>
+
+    <style name="news_underline_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4px</item>
+        <item name="android:background">@color/login_register_underline_color</item>
+        <item name="android:layout_marginRight">30px</item>
+        <item name="android:layout_marginLeft">-60px</item>
+    </style>
+
+    <!--直播样式-->
+    <style name="live_fragment_title_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">50px</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+
+    <style name="MediaController_SeekBar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/nemediacontroller_progressbar</item>
+        <item name="android:indeterminateDrawable">@drawable/nemediacontroller_progressbar</item>
+        <item name="android:minHeight">5dip</item>
+        <item name="android:maxHeight">5dip</item>
+        <item name="android:thumb">@drawable/nemediacontroller_progressbar_thumb</item>
+        <item name="android:thumbOffset">8dip</item>
+        <item name="android:paddingLeft">8dip</item>
+        <item name="android:paddingRight">8dip</item>
+    </style>
+
+    <style name="MediaController_Text">
+        <item name="android:textColor">#bfbfbf</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="recycler_view" parent="scroll_view">
+        <item name="android:fadingEdge">none</item>
+        <item name="android:focusable">false</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="scroll_view" parent="@android:style/Widget.ScrollView">
+        <item name="android:scrollbarThumbVertical">@drawable/nim_scrollbar_handle_holo_dark</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/nim_scrollbar_handle_holo_dark</item>
+    </style>
+
+    <style name="dialog_title_text_style">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/main_rb_btn_checked_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+    </style>
+
+    <style name="dialog_default_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="dialog_button_text_style">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@drawable/nim_list_item_selector</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <!-- 新增场地弹框编辑框样式的设置-->
+    <style name="et_chat_content_view" parent="android:Widget.EditText">
+        <item name="android:imeOptions">actionDone|flagNoExtractUi</item>
+        <item name="android:textSize">28px</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+
+    <style name="live_option_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+</resources>

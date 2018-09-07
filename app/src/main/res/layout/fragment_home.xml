@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:textSize="50px"
+            android:text="@string/loading_data"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/home_linear"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/main_rb_btn_checked_color"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:textColor="@android:color/white"
+            android:textSize="50px"
+            android:layout_marginTop="15px"
+            android:layout_centerHorizontal="true"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/home_serach"-->
+            <!--android:layout_width="50px"-->
+            <!--android:layout_height="50px"-->
+            <!--android:layout_marginRight="50px"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginBottom="40px"-->
+            <!--android:layout_marginTop="30px"-->
+            <!--android:background="@drawable/publish_serach"/>-->
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/home_linear"
+        android:id="@+id/home_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>

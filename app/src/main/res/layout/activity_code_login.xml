@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/title_layout"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="64px"
+        android:layout_marginLeft="64px"
+        android:layout_marginRight="64px"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="150px"
+            android:layout_weight="2"
+            android:paddingLeft="20px"
+            android:hint="请输入您的手机号"
+            android:background="@drawable/login_et_code_bg"
+            android:padding="10px"
+            android:inputType="number"
+            android:textSize="50px"
+            android:textColorHint="@color/login_et_text_color"
+            />
+        <Button
+            android:id="@+id/send_code"
+            android:layout_marginLeft="96px"
+            android:layout_width="0dp"
+            android:layout_height="150px"
+            android:layout_weight="1"
+            android:text="发送验证码"
+            android:textSize="50px"
+            android:background="@drawable/login_code_background"
+            android:textColor="@android:color/white"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="64px"
+        android:layout_marginLeft="64px"
+        android:layout_marginRight="64px"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:padding="32px"
+        android:textSize="50px"
+        android:background="@drawable/login_et_code_bg"
+        android:textColorHint="@color/login_et_text_color"/>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360px"
+        android:text="登录"
+        android:textSize="50px"
+        android:layout_marginLeft="64px"
+        android:layout_marginRight="64px"
+        android:background="@color/main_rb_btn_checked_color"
+        android:textColor="@android:color/white"/>
+</com.zhy.autolayout.AutoLinearLayout>

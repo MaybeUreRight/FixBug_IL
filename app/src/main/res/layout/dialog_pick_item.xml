@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600px"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置封面"
+        android:background="@color/main_rb_btn_checked_color"
+        android:padding="64px"
+        android:textColor="@android:color/white"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/photo_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍照"
+        android:padding="64px"
+        android:gravity="center"
+        />
+    <View
+        style="@style/mine_list_underline_style"/>
+    <TextView
+        android:id="@+id/local_pictures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地图片"
+        android:padding="64px"
+        android:gravity="center"/>
+    <View
+        style="@style/mine_list_underline_style"/>
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:padding="64px"
+        android:gravity="center"/>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:gravity="center_vertical"
+        android:background="@color/main_rb_btn_checked_color">
+        <ImageView
+            android:id="@+id/login_back"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:src="@drawable/login_back"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="77px"
+            android:padding="20px"/>
+        <TextView
+            android:id="@+id/title_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:textSize="50px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="bottom"
+    android:focusable="true"
+    android:paddingTop="64px"
+    android:paddingBottom="64px"
+    >
+    <ImageView
+        android:id="@+id/look_select"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/rb_unchecked"
+        android:layout_marginLeft="45px"
+        />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="45px"
+       >
+        <TextView
+            android:id="@+id/select_way"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公开"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23px"
+            android:descendantFocusability="beforeDescendants">
+            <TextView
+                android:id="@+id/select_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="所有人均可观看"
+                android:focusable="false"/>
+
+            <EditText
+                android:id="@+id/et_settings_pwd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="请输入密码"
+                android:background="@null"
+                android:textSize="40px"
+                android:focusable="true"
+                android:inputType="numberPassword"
+                android:visibility="gone"
+                android:textColorHint="@color/color_black_999999"/>
+        </LinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:layout_marginTop="20px"
+    android:paddingBottom="20px"
+    >
+
+    <ImageView
+        android:layout_marginLeft="30px"
+        android:id="@+id/info_pic"
+        android:layout_width="260px"
+        android:layout_height="260px"
+        android:src="@drawable/default_pic"
+        android:scaleType="fitXY"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginLeft="20px"
+        android:padding="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20px"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/info_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题"
+            android:textSize="50px"
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所属企业:"/>
+            <TextView
+                android:id="@+id/affiliated_enterprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:layout_marginTop="10px"
+            android:id="@+id/info_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="时间"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
