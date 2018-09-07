@@ -19,6 +19,7 @@ import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.InfotmationDetailActivity;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
 import com.xgkj.ilive.activity.TaHomeDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.HomeModel;
 import com.xgkj.ilive.mvp.model.LiveDetailsModel;
 import com.xgkj.ilive.mvp.model.MineAttentionModel;
@@ -73,7 +74,9 @@ public class TaUserInfoAdapter extends RecyclerView.Adapter<TaUserInfoAdapter.Mi
     @Override
     public void onBindViewHolder(MineAttentionViewHolder holder, int position) {
         TaHistoryListBean.ListBean listBean = addAttenTionList.get(position);
-        Glide.with(context).load(listBean.getVideo_pic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.new_pic);
+        Glide.with(context).load(listBean.getVideo_pic())
+                .apply(App.requestOptions.placeholder(R.drawable.default_pic).error(R.drawable.default_pic))
+                .into(holder.new_pic);
         //设置标题加粗
         TextPaint tp = holder.news_title.getPaint();
         tp.setFakeBoldText(true);

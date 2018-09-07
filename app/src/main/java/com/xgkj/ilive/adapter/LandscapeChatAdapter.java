@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.QueryChatMessageModel;
 
 import java.util.List;
@@ -38,7 +39,9 @@ public class LandscapeChatAdapter extends RecyclerView.Adapter<LandscapeChatAdap
     @Override
     public void onBindViewHolder(LandscapeChatViewHolder holder, int position) {
         QueryChatMessageModel.APIDATABean.RetBean retBean = ret.get(position);
-        Glide.with(holder.itemView.getContext()).load(retBean.getPic()).asBitmap().placeholder(R.drawable.chat_icon).error(R.drawable.chat_icon).into(holder.live_stream_icon);
+        Glide.with(holder.itemView.getContext()).asBitmap().load(retBean.getPic())
+                .apply(App.requestOptions.placeholder(R.drawable.chat_icon).error(R.drawable.chat_icon))
+                .into(holder.live_stream_icon);
         holder.live_stream_content.setText(retBean.getNickname()+":"+retBean.getFiltercontent());
     }
 

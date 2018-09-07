@@ -28,6 +28,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMVideo;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.log.LogUtils;
 import com.xgkj.ilive.mvp.model.BestNewModel;
 import com.xgkj.ilive.mvp.model.LiveDetailsModel;
@@ -111,8 +112,8 @@ public class BestAdapter extends RecyclerView.Adapter<BestAdapter.ViewHolder> im
             holder.create_time.setText("预告");
         }
 
-        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.list_video_pic);
-        Glide.with(holder.itemView.getContext()).load(listBean.getUser_pic()).asBitmap().placeholder(R.drawable.chat_icon).error(R.drawable.chat_icon).into(holder.user_icon);
+        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic()).apply(App.requestOptions).into(holder.list_video_pic);
+        Glide.with(holder.itemView.getContext()).asBitmap().load(listBean.getUser_pic()).apply(App.requestOptions).into(holder.user_icon);
         holder.return_title.setText(listBean.getTitle());
         holder.company_title.setText(listBean.getCompany_title());
         holder.look_people.setText(listBean.getVideo_count()+"次观看");

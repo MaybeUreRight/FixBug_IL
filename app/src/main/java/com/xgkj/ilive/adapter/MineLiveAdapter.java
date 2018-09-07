@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.MineLiveModel;
 import com.xgkj.ilive.utils.DateUtil;
 
@@ -41,7 +42,9 @@ public class MineLiveAdapter extends RecyclerView.Adapter<MineLiveAdapter.MineLi
     @Override
     public void onBindViewHolder(MineLiveViewHolder holder, int position) {
         MineLiveModel.APIDATABean.RetBean.ListBean listBean = liveList.get(position);
-        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.video_pic);
+        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic())
+                .apply(App.requestOptions.placeholder(R.drawable.default_pic).error(R.drawable.default_pic))
+                .into(holder.video_pic);
         holder.mine_live_title.setText(listBean.getTitle());
         String s = DateUtil.formatTimeInMillis(Long.parseLong(listBean.getCreated() + "000"));
         holder.live_create_time.setText(s);

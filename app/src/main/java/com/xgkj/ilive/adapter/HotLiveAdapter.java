@@ -16,6 +16,7 @@ import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okrx.RxAdapter;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.HomeModel;
 import com.xgkj.ilive.mvp.model.LiveDetailsModel;
 import com.xgkj.ilive.net.NetUrl;
@@ -58,7 +59,9 @@ public class HotLiveAdapter extends RecyclerView.Adapter<HotLiveAdapter.HotViewH
     @Override
     public void onBindViewHolder(HotViewHolder holder, int position) {
         HomeModel.APIDATABean.LiveListBean liveListBean = live_list.get(position);
-        Glide.with(context).load(liveListBean.getPic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.hot_video_pic);
+        Glide.with(context).load(liveListBean.getPic())
+                .apply(App.requestOptions.placeholder(R.drawable.default_pic).error(R.drawable.default_pic))
+                .into(holder.hot_video_pic);
         holder.hot_video_title.setText(liveListBean.getTitle());
     }
 

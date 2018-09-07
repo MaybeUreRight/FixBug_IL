@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.InfotmationDetailActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.NewsSerachModel;
 import com.xgkj.ilive.utils.DateUtil;
 
@@ -47,7 +48,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public void onBindViewHolder(NewsViewHolder holder, int position) {
         NewsSerachModel.APIDATABean.RetBean.NewsListBean newsListBean = news_list.get(position);
-        Glide.with(context).load(newsListBean.getPic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.info_pic);
+        Glide.with(context).load(newsListBean.getPic()).apply(App.requestOptions).into(holder.info_pic);
         //设置标题加粗
         TextPaint tp = holder.info_title.getPaint();
         tp.setFakeBoldText(true);

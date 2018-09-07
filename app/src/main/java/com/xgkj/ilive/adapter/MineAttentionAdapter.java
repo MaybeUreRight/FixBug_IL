@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.TaHomeDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.MineAttentionModel;
 import com.xgkj.ilive.view.CircleImageView;
 
@@ -46,7 +47,7 @@ public class MineAttentionAdapter extends RecyclerView.Adapter<MineAttentionAdap
     @Override
     public void onBindViewHolder(MineAttentionViewHolder holder, int position) {
         MineAttentionModel.APIDATABean.RetBean.ListBean listBean = addAttenTionList.get(position);
-        Glide.with(holder.itemView.getContext()).load(listBean.getTo_pic()).asBitmap().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon).into(holder.attention_icon);
+        Glide.with(holder.itemView.getContext()).asBitmap().load(listBean.getTo_pic()).apply(App.requestOptions).into(holder.attention_icon);
         holder.attention_name.setText(listBean.getTo_username());
     }
 

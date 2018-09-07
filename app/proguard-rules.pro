@@ -167,6 +167,7 @@ public static final int *;
 #autolayout不能混淆
 -keep class com.zhy.autolayout.** {*;}
 
+-dontwarn okio.**
 #okgo不能混淆的代码
 #okgo
 -dontwarn com.lzy.okgo.**

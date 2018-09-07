@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.HomeModel;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.VideoH
     @Override
     public void onBindViewHolder(VideoHolder holder, int position) {
         HomeModel.APIDATABean.VideoListBean videoListBean = video_list.get(position);
-        Glide.with(context).load(videoListBean.getVideo_pic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.hot_video_pic);
+        Glide.with(context).load(videoListBean.getVideo_pic()).apply(App.requestOptions).into(holder.hot_video_pic);
         holder.hot_video_title.setText(videoListBean.getTitle());
     }
 

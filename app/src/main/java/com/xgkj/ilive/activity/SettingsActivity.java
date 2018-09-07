@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.umeng.analytics.MobclickAgent;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.base.BaseActivity;
 import com.xgkj.ilive.mvp.contract.SettingsContract;
 import com.xgkj.ilive.mvp.model.MineModel;
@@ -94,7 +95,11 @@ public class SettingsActivity extends BaseActivity implements SettingsContract.V
 
     @Override
     public void getUserInfoFinished(MineModel.APIDATABean.RetBean ret) {
-        Glide.with(this).load(ret.getPic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon).into(user_icon);
+        Glide.with(this)
+                .asBitmap()
+                .load(ret.getPic())
+                .apply(App.requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop())
+                .into(user_icon);
     }
 
     @Override

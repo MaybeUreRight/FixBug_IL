@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.InfotmationDetailActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.HomeModel;
 import com.xgkj.ilive.utils.DateUtil;
 
@@ -49,7 +50,7 @@ public class HotInformationAdapter extends RecyclerView.Adapter<HotInformationAd
     public void onBindViewHolder(HotInfoViewHolder holder, int position) {
         HomeModel.APIDATABean.NewsListBean newsListBean = news_list.get(position);
 
-        Glide.with(context).load(newsListBean.getPic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.new_pic);
+        Glide.with(context).load(newsListBean.getPic()).apply(App.requestOptions).into(holder.new_pic);
         //设置标题加粗
         TextPaint tp = holder.news_title.getPaint();
         tp.setFakeBoldText(true);

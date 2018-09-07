@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.PublishVideoModel;
 import com.xgkj.ilive.utils.DateUtil;
 import com.xgkj.ilive.view.CircleImageView;
@@ -61,11 +62,11 @@ public class PublishVideoAdapter extends RecyclerView.Adapter<PublishVideoAdapte
         }
 
         PublishVideoModel.APIDATABean.RetBean.ListBean listBean = list.get(position);
-        Glide.with(context).load(listBean.getUser_pic()).error(R.drawable.chat_icon).placeholder(R.drawable.chat_icon).into(holder.publish_user_icon);
+        Glide.with(context).load(listBean.getUser_pic()).apply(App.requestOptions).into(holder.publish_user_icon);
         //实现点击播放按钮进行播放
         holder.look_people.setText(listBean.getVideo_count() + "次播放");
         holder.company_title.setText("企业名称:"+listBean.getCompany_title());
-        Glide.with(context).load(listBean.getVideo_pic()).error(R.drawable.default_pic).placeholder(R.drawable.default_pic).into(holder.list_video_pic);
+        Glide.with(context).load(listBean.getVideo_pic()).apply(App.requestOptions).into(holder.list_video_pic);
 
         String live_type = listBean.getLive_type();
         String cid_url = listBean.getCid_url();

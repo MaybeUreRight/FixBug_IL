@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.BrowseRecordsLiveModel;
 import com.xgkj.ilive.utils.DateUtil;
 
@@ -38,7 +39,7 @@ public class BrowseRecordsLiveAdapter extends RecyclerView.Adapter<BrowseRecords
     @Override
     public void onBindViewHolder(BrowseRecordsLiveViewHolder holder, int position) {
         BrowseRecordsLiveModel.APIDATABean.RetBean.ListBean listBean = list.get(position);
-        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.browse_records_img);
+        Glide.with(holder.itemView.getContext()).load(listBean.getVideo_pic()).apply(App.requestOptions).into(holder.browse_records_img);
         holder.enterprise_name.setText(listBean.getUsername());
         holder.enterprise_all.setText("所属部分:"+listBean.getIntroduce());
         String s = DateUtil.formatTimeInMillis(Long.parseLong(listBean.getCreated() + "000"));

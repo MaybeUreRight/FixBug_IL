@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.adapter.VideoPagerAdapter;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.base.BaseActivity;
 import com.xgkj.ilive.mvp.contract.TaUserInfoContact;
 import com.xgkj.ilive.mvp.model.TaUserModel;
@@ -141,7 +142,8 @@ public class TaHomeDetailsActivity extends BaseActivity implements TaUserInfoCon
     public void getUserInfoFinished(TaUserModel.APIDATABean ret, String type) {
         if (ret.getList().size()>0){
             TaUserInfoBean bean = ret.getList().get(0);
-            Glide.with(this).load(bean.getPic()).asBitmap().centerCrop().error(R.drawable.mine_circle_icon).placeholder(R.drawable.mine_circle_icon).into(iv_head);
+            Glide.with(this).asBitmap().load(bean.getPic()).apply(App.requestOptions.centerCrop())
+                    .into(iv_head);
             tv_nickname.setText(bean.getNickname());
 //            tv_sign.setText(bean.getNickname());
         }

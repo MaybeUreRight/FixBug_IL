@@ -20,6 +20,7 @@ import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okrx.RxAdapter;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.FollowModel;
 import com.xgkj.ilive.mvp.model.UserInfoModel;
 import com.xgkj.ilive.net.NetUrl;
@@ -98,7 +99,9 @@ public class UserInfoDialog extends Dialog implements View.OnClickListener{
         }else {
             btn_follow.setText("关注");
         }
-        Glide.with(mContext).load(pic).asBitmap().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon).into(iv_head);
+        Glide.with(mContext).asBitmap().load(pic)
+                .apply(App.requestOptions.placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon))
+                .into(iv_head);
         getUerInfo(uid);
     }
 

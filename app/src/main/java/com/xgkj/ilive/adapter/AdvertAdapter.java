@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.AdvertModel;
 
 import java.util.List;
@@ -43,7 +44,9 @@ public class AdvertAdapter extends PagerAdapter{
         ImageView advert = new ImageView(context);
         advert.setScaleType(ImageView.ScaleType.FIT_XY);
         AdvertModel.APIDATABean.RetBean.ListBean listBean = advertList.get(i);
-        Glide.with(context).load(listBean.getPic()).placeholder(R.drawable.default_pic).into(advert);
+        Glide.with(context).load(listBean.getPic())
+                .apply(App.requestOptions.placeholder(R.drawable.default_pic))
+                .into(advert);
         container.addView(advert);
         return advert;
     }

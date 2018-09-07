@@ -5,9 +5,11 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.Gravity;
@@ -25,6 +27,7 @@ import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okrx.RxAdapter;
 import com.umeng.analytics.MobclickAgent;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.base.BaseActivity;
 import com.xgkj.ilive.log.LogUtils;
 import com.xgkj.ilive.mvp.contract.PersonalProfileContract;
@@ -92,6 +95,7 @@ public class PersonalProfileActivity extends BaseActivity implements PersonalPro
         personalProfilePresenter.getUserInfo();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @OnClick({R.id.persion_back, R.id.user_icon, R.id.tv_industry, R.id.personal_sex, R.id.get_app_cache})
     public void persionClick(View view) {
         switch (view.getId()) {
@@ -294,7 +298,7 @@ public class PersonalProfileActivity extends BaseActivity implements PersonalPro
 
     @Override
     public void getUserInfoFinished(MineModel.APIDATABean.RetBean ret) {
-        Glide.with(this).load(ret.getPic()).asBitmap().centerCrop().error(R.drawable.mine_circle_icon).placeholder(R.drawable.mine_circle_icon).into(user_icon);
+        Glide.with(this).asBitmap().load(ret.getPic()).apply(App.requestOptions.centerCrop()).into(user_icon);
         get_app_cache.setText(ret.getNickname());
         String industry = ret.getIndustry();
         if ("".equals(industry) || industry == null) {

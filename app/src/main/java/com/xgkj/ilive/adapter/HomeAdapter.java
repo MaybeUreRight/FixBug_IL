@@ -22,6 +22,7 @@ import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.HighlightsActivity;
 import com.xgkj.ilive.activity.HotInformationActivity;
 import com.xgkj.ilive.activity.HotVideoActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.log.LogUtils;
 import com.xgkj.ilive.mvp.model.AdvertModel;
 import com.xgkj.ilive.mvp.model.HomeModel;
@@ -288,7 +289,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         @Override
         public void UpdateUI(Context context, int position, String data) {
-            Glide.with(context).load(data).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(view);
+            Glide.with(context).load(data)
+                    .apply(App.requestOptions.placeholder(R.drawable.default_pic).error(R.drawable.default_pic))
+                    .into(view);
         }
     }
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.HotModel;
 import com.xgkj.ilive.view.CircleImageView;
 
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
  * 日期: 2017/7/18 0018 13:03
  */
 
-public class HotLiveVideoAdapter extends RecyclerView.Adapter<HotLiveVideoAdapter.HotLiveVideoViewHolder>{
+public class HotLiveVideoAdapter extends RecyclerView.Adapter<HotLiveVideoAdapter.HotLiveVideoViewHolder> {
 
     private Context context;
     private List<HotModel.APIDATABean.RetBean.VideoListBean> video_list;
@@ -33,8 +34,8 @@ public class HotLiveVideoAdapter extends RecyclerView.Adapter<HotLiveVideoAdapte
         this.context = context;
     }
 
-    public void setData(List<HotModel.APIDATABean.RetBean.VideoListBean> video_list){
-        if (video_list == null){
+    public void setData(List<HotModel.APIDATABean.RetBean.VideoListBean> video_list) {
+        if (video_list == null) {
             return;
         }
         notifyDataSetChanged();
@@ -51,17 +52,18 @@ public class HotLiveVideoAdapter extends RecyclerView.Adapter<HotLiveVideoAdapte
     public void onBindViewHolder(HotLiveVideoViewHolder holder, int position) {
         HotModel.APIDATABean.RetBean.VideoListBean videoListBean = video_list.get(position);
 
-        Glide.with(context).load(videoListBean.getVideo_pic()).error(R.drawable.default_pic).placeholder(R.drawable.default_pic).into(holder.list_video_pic);
-        Glide.with(context).load(videoListBean.getUser_pic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().error(R.drawable.mine_circle_icon).placeholder(R.drawable.mine_circle_icon).into(holder.user_icon);
+        Glide.with(context).load(videoListBean.getVideo_pic()).apply(App.requestOptions).into(holder.list_video_pic);
+        Glide.with(context).asBitmap().load(videoListBean.getUser_pic()).apply(App.requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon))
+                .into(holder.user_icon);
         holder.return_title.setText(videoListBean.getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return video_list != null?video_list.size() :0;
+        return video_list != null ? video_list.size() : 0;
     }
 
-    class HotLiveVideoViewHolder extends RecyclerView.ViewHolder{
+    class HotLiveVideoViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.list_video_pic)
         ImageView list_video_pic;
@@ -73,7 +75,7 @@ public class HotLiveVideoAdapter extends RecyclerView.Adapter<HotLiveVideoAdapte
 
         public HotLiveVideoViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

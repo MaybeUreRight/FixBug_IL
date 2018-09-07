@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.support.annotation.RequiresApi;
 
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.request.RequestOptions;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -13,6 +15,7 @@ import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+import com.xgkj.ilive.R;
 import com.xgkj.ilive.log.CrashHandler;
 import com.xgkj.ilive.log.LogUtils;
 import com.xgkj.ilive.utils.ILiveConstant;
@@ -28,6 +31,7 @@ import java.util.logging.Level;
 public class App extends Application  {
 
     private static Context mContext;
+    public static RequestOptions requestOptions;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -56,6 +60,12 @@ public class App extends Application  {
         PlatformConfig.setWeixin(ILiveConstant.WEIXIN_APPID,ILiveConstant.WEIXIN_APPSERCET);
         PlatformConfig.setQQZone(ILiveConstant.QQ_APPID, ILiveConstant.QQ_SERCET);
        // PlatformConfig.setSinaWeibo(ILiveConstant.SINA_APPID, ILiveConstant.SINA_APPSERCET,"http://sns.whalecloud.com");
+
+        requestOptions = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.default_pic)
+                .error(R.drawable.default_pic)
+                .priority(Priority.HIGH);
     }
 
     public static Context getmContext() {

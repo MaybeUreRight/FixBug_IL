@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.QueryChatMessageModel;
 import com.xgkj.ilive.utils.emoji.EmojiConversionUtils;
 import com.xgkj.ilive.view.CircleImageView;
@@ -77,7 +78,10 @@ public class LiveStreamingAdapter extends RecyclerView.Adapter<LiveStreamingAdap
             e.printStackTrace();
         }
         // holder.commet_time.setText(retBean.getTime());
-        Glide.with(holder.itemView.getContext()).load(retBean.getPic()).asBitmap().placeholder(R.drawable.chat_icon).error(R.drawable.chat_icon).into(holder.commet_icon);
+        Glide.with(holder.itemView.getContext()).asBitmap()
+                .load(retBean.getPic())
+                .apply(App.requestOptions.placeholder(R.drawable.chat_icon).error(R.drawable.chat_icon))
+                .into(holder.commet_icon);
     }
 
 

@@ -1,6 +1,7 @@
 package com.xgkj.ilive.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -48,6 +49,7 @@ import com.umeng.socialize.shareboard.ShareBoardConfig;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.adapter.LiveStreamingAdapter;
 import com.xgkj.ilive.adapter.SpaceItemDecoration;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.base.BaseActivity;
 import com.xgkj.ilive.fragment.ChatFragment;
 import com.xgkj.ilive.fragment.DetailsFragment;
@@ -313,7 +315,7 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
     private void pauseOtherAppSoucePlay() {
         if (requestTheAudioFocus() == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
             intent = getIntent();
-            is_follow = intent.getIntExtra("is_follow",0);
+            is_follow = intent.getIntExtra("is_follow", 0);
             cid = intent.getStringExtra("cid");
             uid = intent.getStringExtra("publish_id");
             timeUtils = new TimeUtils();
@@ -344,12 +346,12 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
                     video_details_relative.setVisibility(View.GONE);
                     play_details_image.setVisibility(View.VISIBLE);
                     publishVideoDetailsPresenter.getAdvanceLiveDetails(cid);
-                    Glide.with(this).load(video_pic).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(play_details_image);
+                    Glide.with(this).load(video_pic).apply(App.requestOptions).into(play_details_image);
                 } else if (!"".equals(cid_url) && type.equals("2")) {
                     video_details_relative.setVisibility(View.GONE);
                     play_details_image.setVisibility(View.VISIBLE);
                     publishVideoDetailsPresenter.getAdvanceLiveDetails(cid);
-                    Glide.with(this).load(video_pic).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(play_details_image);
+                    Glide.with(this).load(video_pic).apply(App.requestOptions).into(play_details_image);
                 }
 
                 details_title.setTextColor(getResources().getColor(R.color.main_rb_btn_checked_color));
@@ -384,6 +386,7 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
 
 
     private PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
+        @SuppressLint("LongLogTag")
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
             super.onCallStateChanged(state, incomingNumber);
@@ -479,7 +482,9 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
         follow_number.setText(like + "次");
         tv_shared.setText(send + "次");
         Glide.with(this).load(pic).into(user_icon_img);
-        Glide.with(this).load(pic).asBitmap().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon).into(user_icon);
+        Glide.with(this).asBitmap().load(pic)
+                .apply(App.requestOptions.placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon))
+                .into(user_icon);
         video_play_and_pause.setImageResource(R.drawable.play_video);
         video_seekbar.setOnSeekBarChangeListener(this);
         //播放出错了的监听
@@ -542,9 +547,9 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
         String like = list.getLike();
         Drawable drawableLeft = getResources().getDrawable(
                 R.drawable.follow_checked);
-        follow_number.setCompoundDrawablesWithIntrinsicBounds(drawableLeft,null,null,null);
+        follow_number.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, null, null, null);
         follow_number.setCompoundDrawablePadding(64);
-        follow_number.setText(like+"次");
+        follow_number.setText(like + "次");
     }
 
     @Override
@@ -552,9 +557,9 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
         String like = list.getYglike();
         Drawable drawableLeft = getResources().getDrawable(
                 R.drawable.follow_checked);
-        follow_number.setCompoundDrawablesWithIntrinsicBounds(drawableLeft,null,null,null);
+        follow_number.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, null, null, null);
         follow_number.setCompoundDrawablePadding(64);
-        follow_number.setText(like+"次");
+        follow_number.setText(like + "次");
     }
 
     @Override
@@ -566,7 +571,7 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
 
 
     @OnClick({R.id.follow_number, R.id.tv_shared, R.id.video_play_and_pause, R.id.chat_title, R.id.share_rb, R.id.details_title,
-            R.id.scan_big_small, R.id.image_back,R.id.user_icon_img,R.id.user_icon})
+            R.id.scan_big_small, R.id.image_back, R.id.user_icon_img, R.id.user_icon})
     public void onDownClick(View view) {
         FragmentManager manager = getSupportFragmentManager();
         switch (view.getId()) {
@@ -680,19 +685,19 @@ public class PublishVideoDetailsActivity extends BaseActivity implements Publish
             case R.id.follow_number:
                 String type1 = this.intent.getStringExtra("type");
                 String type = null;
-                if ("预告".equals(type1)){
+                if ("预告".equals(type1)) {
                     type = "3";
-                }else {
+                } else {
                     type = this.intent.getStringExtra("live_type");
                 }
 
-                Log.e("follow_number",type+"**********************************");
+                Log.e("follow_number", type + "**********************************");
                 publishVideoDetailsPresenter.startClickLike(this.cid, type);
 
                 break;
             case R.id.user_icon:
             case R.id.user_icon_img:
-                UserInfoDialog dialog = new UserInfoDialog(this,uid,pic, is_follow, new UserInfoDialog.DialogCallBackListener() {
+                UserInfoDialog dialog = new UserInfoDialog(this, uid, pic, is_follow, new UserInfoDialog.DialogCallBackListener() {
                     @Override
                     public void callBack(int msg) {
                         is_follow = msg;

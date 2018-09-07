@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.InfotmationDetailActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.PublishInformationModel;
 import com.xgkj.ilive.utils.DateUtil;
 
@@ -49,8 +50,7 @@ public class PublishInfoAdapter extends RecyclerView.Adapter<PublishInfoAdapter.
     @Override
     public void onBindViewHolder(PublishInfoViewHolder holder, int position) {
         PublishInformationModel.APIDATABean.RetBean.ListBean listBean = infoListAll.get(position);
-
-        Glide.with(context).load(listBean.getPic()).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.info_pic);
+        Glide.with(context).load(listBean.getPic()).apply(App.requestOptions).into(holder.info_pic);
         //设置标题加粗
         TextPaint tp = holder.info_title.getPaint();
         tp.setFakeBoldText(true);

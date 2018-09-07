@@ -28,6 +28,7 @@ import com.xgkj.ilive.activity.BrowseRecordsActivity;
 import com.xgkj.ilive.activity.MineAttentionActivity;
 import com.xgkj.ilive.activity.MineLiveActivity;
 import com.xgkj.ilive.activity.SettingsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.base.BaseFragment;
 import com.xgkj.ilive.log.LogUtils;
 import com.xgkj.ilive.mvp.contract.MineContract;
@@ -47,7 +48,7 @@ import butterknife.OnClick;
  * 作用: 我的模块
  */
 
-public class MineFragment extends BaseFragment implements MineContract.View{
+public class MineFragment extends BaseFragment implements MineContract.View {
 
     private static final int PHOTO_CODE = 1;
     private static final int LOCAL_PHOTO_CODE = 2;
@@ -81,28 +82,27 @@ public class MineFragment extends BaseFragment implements MineContract.View{
     protected void init(Bundle savedInstanceState) {
         MobclickAgent.setCatchUncaughtExceptions(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if (PermissionChecker.checkCallingOrSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (PermissionChecker.checkCallingOrSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             }
         }
 
-        minePresenter = new MinePresenter(this,getActivity());
+        minePresenter = new MinePresenter(this, getActivity());
         minePresenter.getUserInfo();
 
     }
 
 
-
-    @OnClick({R.id.mine_round_circle,R.id.mine_attention,R.id.mine_browse_records,R.id.mine_live,R.id.mine_settings})
-    public void onClick(View view){
-        switch (view.getId()){
+    @OnClick({R.id.mine_round_circle, R.id.mine_attention, R.id.mine_browse_records, R.id.mine_live, R.id.mine_settings})
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.mine_round_circle:
                 final PopupWindow popupWindow = new PopupWindow();
                 View view1 = View.inflate(getActivity(), R.layout.mine_icon_upload, null);
-                TextView tv_photograph=(TextView) view1.findViewById(R.id.tv_photograph);
-                TextView local_pictures=(TextView) view1.findViewById(R.id.local_pictures);
-                TextView tv_cancel=(TextView) view1.findViewById(R.id.tv_cancel);
+                TextView tv_photograph = (TextView) view1.findViewById(R.id.tv_photograph);
+                TextView local_pictures = (TextView) view1.findViewById(R.id.local_pictures);
+                TextView tv_cancel = (TextView) view1.findViewById(R.id.tv_cancel);
                 View blank = view1.findViewById(R.id.blank);
                 blank.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -167,7 +167,7 @@ public class MineFragment extends BaseFragment implements MineContract.View{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case PHOTO_CODE:
                 //上传拍照的图片
                 minePresenter.updateUserIcon(data);
@@ -183,9 +183,10 @@ public class MineFragment extends BaseFragment implements MineContract.View{
 
     /**
      * 选择本地图片相册
+     *
      * @param data
      */
-    private void selectLocalPhoto(Intent data){
+    private void selectLocalPhoto(Intent data) {
         try {
             Uri data1 = data.getData();
             String[] images = {MediaStore.Images.Media.DATA};
@@ -200,8 +201,8 @@ public class MineFragment extends BaseFragment implements MineContract.View{
             System.out.println("图片的大小：" + bytes.length);
             String photo = Base64.encodeToString(bytes, 0, bytes.length, Base64.DEFAULT);
             minePresenter.updateLocalPicture(photo);
-        }catch (Exception e){
-            Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
             LogUtils.e(e.toString());
         }
     }
@@ -209,19 +210,23 @@ public class MineFragment extends BaseFragment implements MineContract.View{
     @Override
     public void getUserInfoFinished(MineModel.APIDATABean.RetBean ret) {
         int bind_company = ret.getBind_company();
-        if (bind_company == 0){
+        if (bind_company == 0) {
             tv_company.setVisibility(View.GONE);
             company_profile.setVisibility(View.GONE);
-        }else if (bind_company == 1){
+        } else if (bind_company == 1) {
             tv_company.setVisibility(View.VISIBLE);
             company_profile.setVisibility(View.VISIBLE);
-            tv_company.setText("公司认证:\t"+ret.getCompany_title());
-            company_profile.setText("公司介绍:"+ret.getCompany_abbr());
+            tv_company.setText("公司认证:\t" + ret.getCompany_title());
+            company_profile.setText("公司介绍:" + ret.getCompany_abbr());
 //            String company_id = ret.getCompany_id();
 //            minePresenter.getCompanyInfo(company_id);
         }
         tv_nickname.setText(ret.getNickname());
-        Glide.with(getActivity()).load(ret.getPic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon).into(mine_round_circle);
+        Glide.with(getActivity())
+                .asBitmap()
+                .load(ret.getPic())
+                .apply(App.requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().placeholder(R.drawable.mine_circle_icon).error(R.drawable.mine_circle_icon))
+                .into(mine_round_circle);
     }
 
     @Override

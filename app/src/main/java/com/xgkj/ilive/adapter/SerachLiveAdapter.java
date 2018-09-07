@@ -17,6 +17,7 @@ import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okrx.RxAdapter;
 import com.xgkj.ilive.R;
 import com.xgkj.ilive.activity.PublishVideoDetailsActivity;
+import com.xgkj.ilive.app.App;
 import com.xgkj.ilive.mvp.model.LiveDetailsModel;
 import com.xgkj.ilive.mvp.model.NewsSerachModel;
 import com.xgkj.ilive.net.NetUrl;
@@ -61,7 +62,9 @@ public class SerachLiveAdapter extends RecyclerView.Adapter<SerachLiveAdapter.Se
         NewsSerachModel.APIDATABean.RetBean.LiveListBean liveListBean = live_list.get(position);
         String pic = liveListBean.getPic();
         if (pic !=null){
-            Glide.with(holder.itemView.getContext()).load(pic).placeholder(R.drawable.default_pic).error(R.drawable.default_pic).into(holder.info_pic);
+            Glide.with(holder.itemView.getContext()).load(pic)
+                    .apply(App.requestOptions.placeholder(R.drawable.default_pic).error(R.drawable.default_pic))
+                    .into(holder.info_pic);
         }
         String company_title = liveListBean.getCompany_title();
         if (company_title!=null){
